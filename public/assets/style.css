@@ -1,0 +1,196 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Open Sans", sans-serif;
+}
+
+.header-style{
+    width: 100%;
+    background-color: rgba(3, 32, 22, .9);
+}
+
+.header-style nav{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-style nav ul{
+    display: flex; /* ----------*/
+    gap: 2rem;
+}
+
+.header-style nav ul li{
+    color: aliceblue;
+    font-size: 1.5rem;
+    padding: 1em .5em;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+.header-style nav ul li:hover{
+    transform: scale(1.05);
+    font-weight: 700;
+    
+}
+
+.padding-20{
+    padding-left: 8em;
+    padding-right: 8em;
+}
+
+.dropdown{
+    display: none;
+    width: 3em;
+    height: 3em;
+    border: 4px solid #FFFFFF;
+    border-radius: 15px;
+    position: relative;
+}
+.dropdown::before{
+    content: '☰';
+    bottom: 1px;
+    left: 5px;
+    font-size: 2em;
+    color: #FFFFFF;
+    position:absolute;
+}
+.division-table{
+    border-collapse: collapse;
+}
+.division-table tr th{
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
+.division-table tr td, th{
+    font-family: "Josefin Sans", sans-serif;
+    padding: 10px 50px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    text-align: center;
+    border-radius: 5px;
+    
+}
+.division-table tr td.description{
+    padding: 10px 200px;
+}
+
+.initial-main{
+    width: 100%;
+    background-color: #e8f0eb;
+    min-height: 100vh;
+    padding-top: 4rem;
+}
+
+
+.division{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.division-content-1{
+    text-align: center;
+}
+.division-content-2{
+    text-align: center;
+}
+
+.division-content-1 h1{
+    font-size: 5em;
+    font-family: "Fjalla One", cursive;
+    text-shadow: 2px 2px 2px black;
+}
+
+.division-content-1 h2{
+    font-size: 3em;
+    font-family: "Pacifico", cursive;
+}
+
+.dropdown-menu-login-tarefa{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 81px;
+    
+}
+
+.dropdown-menu-login-tarefa .dropdown-log, .dropdown-tarefa{
+    background-color: rgba(3, 32, 22, .7);
+    border-bottom: 2px solid #ffffff;
+    padding: 0 20px 15px;
+    width: 15em;
+    color: #FFFFFF;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius:20px ;
+    position: absolute;
+    transition: all 1s ease-in-out;
+}
+
+.dropdown-menu-login-tarefa .dropdown-log{
+    text-align: left;
+    display: none;
+    flex-direction: column;
+    align-items: end;
+    right: 4rem;
+}
+.aparece{
+    display: none;
+}
+
+.dropdown-tarefa{
+    display: none;
+    left: 4rem;
+}
+
+.padding-10{
+    padding-left: 6em;
+    padding-right: 6em;
+
+}
+@media screen and (max-width: 1100px) {
+    
+    .some{
+        display: none;
+    }
+    .header-style{
+        height: 81px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .aparece{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .header-style nav ul li{
+        display: none;
+    }
+    .header-style{
+        height: 81px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .dropdown{
+        display: block;
+    }
+}
