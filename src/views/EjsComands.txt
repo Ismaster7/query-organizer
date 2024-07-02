@@ -1,0 +1,7 @@
+Comandos do EJS:
+
+<% Comandos de controle (if, for, while ...) %>
+<%= exibir algum conteúdo, sendo extremamente fiel ao que foi escrito %> // Neste caso, caso uma tag seja escrita com essa anotação, o sistema vai exibir literalemnte, por exemplo "<div style="color: red"></div>" ao invés de colorir a div
+<%- exibir conteúdo mas com comandos extrar %> // neste caso é possível, por exemplo, inserir um span dentro do texto e ele não vai mostrar o span, como no exemplo acima, mas sim vai tentar executar ele
+<%# Comentários %>
+<%- include('caminho arquivo/arquivo') %>
