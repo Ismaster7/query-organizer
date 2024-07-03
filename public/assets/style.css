@@ -18,6 +18,16 @@
     background-color: rgba(3, 32, 22, .9);
 }
 
+footer{
+    background-color: rgba(3, 32, 22, .9);
+    min-height: 8vh;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+
 .header-style nav{
     margin: 0 auto;
     width: 100%;
@@ -42,6 +52,25 @@
     transform: scale(1.05);
     font-weight: 700;
     
+}
+.git-icon{
+    background: url('./img/icons8-github-100.png') ;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 1rem;
+}
+.linkedin-icon{
+    background: url('./img/linkedin.png');
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+.linkedin-icon a, .git-icon a{
+    width: 100%;
+    height: 100%;
 }
 
 .padding-20{
@@ -88,7 +117,7 @@
 .initial-main{
     width: 100%;
     background-color: #e8f0eb;
-    min-height: 100vh;
+    min-height: 85vh;
     padding-top: 4rem;
 }
 
@@ -153,6 +182,10 @@
 .aparece{
     display: none;
 }
+.relativo{
+    position: relative;
+    height: 100%;
+}
 
 .dropdown-tarefa{
     display: none;
@@ -164,6 +197,40 @@
     padding-right: 6em;
 
 }
+
+.complete-dropdown{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 8%;
+    
+}
+
+.complete-dropdown a{
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color:rgba(3, 32, 22, .7);
+    padding: 3rem 8rem;
+    display: block;
+    font-size: 1.5rem;
+
+}
+
+.complete-dropdown a:hover{
+    background-color: aquamarine;
+    color: black;
+}
+
+
+.profile-user{
+    background: url('./img/profile-user.png');
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    display: none;
+}
+
+
 @media screen and (max-width: 1100px) {
     
     .some{
@@ -192,5 +259,18 @@
     }
     .dropdown{
         display: block;
+    }
+
+    .relativo{
+        display: inline;
+    }
+    .relativo:hover .complete-dropdown{
+        display: block;
+    }
+    .division-content-1 h1, .division-content-1 h2{
+        font-size: 2em;
+    }
+    .padding-20{
+        padding: 2rem;
     }
 }
