@@ -1,24 +1,35 @@
 <section class="main-login padding-20">
     <div class="login-division-1">
+        <div class="login-division-1-1">
         <h2> Criar Conta</h2>
         <p>Crie já sua conta! é gratis.</p>
-        <form action="" method="post">
-            <label for="username">Username: </label>
-            <input type="text" name="username">
+    </div>
+        <form action="/login/register" method="post">
+            <label for="username">E-mail: </label>
+            <input type="text" name="email">
+            <label for="email">Confirme seu E-mail: </label>
+            <input type="text" name="email">
             <label for="password">Senha: </label>
             <input type="password" name="password">
+            <label for="password">Confirme sua Senha: </label>
+            <input type="password" name="password">
+
             <input type="submit">
         </form>
+        <%- include('messages.ejs'); %>
     </div>
     <div class="login-division-2">
-        <h2> Fala login</h2>
-        <form action="" method="post">
-            <label for="username">Username: </label>
-            <input type="text" name="username">
+        <h2> Faça login</h2>
+        <form action="" method="post" >
+            <label for="email">E-mail: </label>
+            <input type="text" name="email">
+            
             <label for="password">Senha: </label>
             <input type="password" name="password">
+            
             <input type="submit">
         </form>
+        
     </div>
     </div>
 

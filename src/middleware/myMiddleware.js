@@ -1,4 +1,6 @@
+
 exports.myMiddleware = (req, res, next)=>{
-    console.log("Voce conseguiu");
+    res.locals.errors = req.flash('errors')
+    res.locals.sucess = req.flash('sucess')
     next()
 }

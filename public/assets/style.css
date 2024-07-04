@@ -65,12 +65,52 @@ footer{
 
 .main-login{
 display: flex;
-justify-content: space-between;
+justify-content: center;
 align-items: center;
 min-height: 85vh;
+background: url('./img/walpapper3.jpg');
+background-size:cover;
+}
+.main-login .login-division-2{
+    display: none;
+}
+.main-login .login-division-1 h2, .main-login .login-division-2 h2{
+    margin-bottom: 4rem;
+    font-size: 3rem;
+    font-family: 'Fjalla One', sans-serif;
+    letter-spacing: 2px;
+}
+.login-division-1{
+    display: flex;
+    gap: 3em;
+    backdrop-filter: blur(20px);
 }
 
-.main-login .login-division-1 input, .main-login .login-division-2 input{
+.login-division-1 form{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+
+}
+.login-division-2, .login-division-1
+.main-login .login-division-1 form label, .main-login .login-division-2 form label{
+    font-size: 1rem;
+    font-weight: 900;
+}
+.main-login .login-division-1 p, .main-login .login-division-2 p{
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+.main-login .login-division-1{
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 3rem;
+}
+.main-login .login-division-1 input{
     display: block;
 }
 .linkedin-icon{
@@ -128,7 +168,8 @@ min-height: 85vh;
 
 .initial-main{
     width: 100%;
-    background-color: #e8f0eb;
+    background: url('./img/walpapper.jpg');
+    background-size: cover;
     min-height: 85vh;
     padding-top: 4rem;
 }
@@ -216,6 +257,16 @@ min-height: 85vh;
     top: 100%;
     left: 8%;
     
+}
+
+.errors{
+    background-color: rgb(201, 120, 120);
+    color: rgb(71, 1, 1);
+    width: 80%;
+    margin-top: 2rem;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: .9em;
 }
 
 .complete-dropdown a{

@@ -6,10 +6,11 @@ const novoController = require('./src/controllers/novoController')
 const loginController = require('./src/controllers/loginController')
 // HOME 
 
-route.get('/', loginController.loginInitialPage)
-route.post('/',homeController.trataPost)
+route.get('/', homeController.paginaInicial)
+//route.post('/',homeController.trataPost)
 
-//route.get('/login', loginController.loginInitialPage)
+route.get('/login/index', loginController.loginInitialPage)
+route.post('/login/register', loginController.register)
 
 // CONTACTS
 

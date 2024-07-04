@@ -8,9 +8,6 @@ exports.trataPost = (req,res)=>{
     res.send(req.body)
 }
 
-exports.daTchau = ()=>{
-    console.log("Tchau")
-}
 
 const HomeModel = require('../models/HomeModel')
 
