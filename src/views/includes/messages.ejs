@@ -7,3 +7,12 @@
         </h1>
     </div>
 <% } %>
+<% if(sucess.length > 0) { %>
+    <div class="sucess">
+        <h1>
+            <% sucess.forEach(sucess =>{ %>
+                    <%= sucess %></br>
+                <% }); %>
+        </h1>
+    </div>
+<% } %>

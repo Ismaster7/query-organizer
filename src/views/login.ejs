@@ -1,4 +1,11 @@
 <%- include('includes/head.ejs') %>
 <%- include('includes/nav.ejs') %>
-<%- include('includes/loginBody.ejs') %>
+<section class="main-login padding-20">
+<% if(screen === "login") { %>
+    <%- include('includes/loginBody.ejs') %>
+<% } else { %> 
+<%- include('includes/cadasterBody.ejs') %>
+<% } %>
+</section>
 <%- include('includes/foooter.ejs') %>
+<%- include('includes/footer.ejs') %>

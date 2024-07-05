@@ -1,0 +1,22 @@
+<div class="login-division-1">
+    <div class="login-division-1-1">
+    <h2> Criar Conta</h2>
+    <p>Crie já sua conta! é gratis.</p>
+    <p>Já tem uma conta? então <span class="login-text"><a href="/login/index">faça login</a></span> para continuar</p>
+</div>
+    <form action="/register/cadaster" method="post" class="login-division-1-2">
+        <label for="email">E-mail: </label>
+        <input type="email" name="email" class="text-effect">
+        <label for="emailConfirm">Confirme seu E-mail: </label>
+        <input type="email" name="emailConfirm" class="text-effect">
+        <label for="password">Senha: </label>
+        <input type="password" name="password" class="text-effect">
+        <label for="passwordConfirm">Confirme sua Senha: </label>
+        <input type="password" name="passwordConfirm" class="text-effect">
+        <input type="submit" class="click-effect">
+        <%- include('messages.ejs'); %>
+    </form>
+    
+</div>
+
+</div>

@@ -1,23 +1,26 @@
 <header class="header-style padding-20">
     <nav class="relativo"> 
         <ul class="tarefas">
-            <li class="some"><a href="">Tarefas</a></li>
-            <li class="aparece drop-tarefa"><a href="">Tarefas</a></li>
-            <li class="some"><a href=""></a>Criar nova</a></li>
+
+            <li class="some"><a href="/">Home</a></li>
+            <li class="aparece drop-tarefa"><a href="">Geral</a></li>
+            <li class="some"><a href=""></a>Gerenciar Tarefas</a></li>
         </ul>
         <div class="dropdown">
-            
+            ☰
         </div>
-        <div class="complete-dropdown">
-            <a href="">Criar Tarefa</a>
-            <a href="">Consultar </a>
-            <a href="">Login</a>
-        </div>
+        
             
         <ul class="login">
-            <li class="some"><a href="">Entrar</a></li>
-            <li class="aparece drop-login"><a href=""></a>Login</a></li>
-            <li class="some"><a href=""></a>Cadastrar</a></li>
+            <% if(!user) { %>
+            <li class="some"><a href="/login/index">Entrar</a></li>
+            <li class="aparece drop-login"><a href="">Login</a></li>
+            <li class="some"><a href="/register/index">Cadastrar</a></li>
+            <% } else { %>
+            <li><%= user.email %></li>
+            
+            <li class="user-icon"></li>    
+            <% } %>
         </ul>
         <div class="profile-user"></div>
         
@@ -25,13 +28,18 @@
     <div class="dropdown-menu-login-tarefa padding-10">
         
         <div class="dropdown-tarefa">
-            <h2>Criar Tarefa</h2>
-            <h2>Consultar</h2>
+            <h2>Home</h2>
+            <h2>Ger. Tarefas</h2>
         </div>
         <div class="dropdown-log">
             <h2>Entrar</h2>
             <h2>Cadastrar</h2>
         </div>
         
+    </div>
+    <div class="complete-dropdown">
+        <a href="">Criar Tarefa</a>
+        <a href="">Consultar </a>
+        <a href="">Login</a>
     </div>
 </header>

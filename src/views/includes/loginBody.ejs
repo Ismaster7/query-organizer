@@ -1,36 +1,17 @@
-<section class="main-login padding-20">
-    <div class="login-division-1">
-        <div class="login-division-1-1">
-        <h2> Criar Conta</h2>
-        <p>Crie já sua conta! é gratis.</p>
-    </div>
-        <form action="/login/register" method="post">
-            <label for="username">E-mail: </label>
-            <input type="text" name="email">
-            <label for="email">Confirme seu E-mail: </label>
-            <input type="text" name="email">
-            <label for="password">Senha: </label>
-            <input type="password" name="password">
-            <label for="password">Confirme sua Senha: </label>
-            <input type="password" name="password">
-
-            <input type="submit">
-        </form>
-        <%- include('messages.ejs'); %>
-    </div>
-    <div class="login-division-2">
+<div class="login-division-2">
+    <form action="/login/login" method="post" class="login-division-2-1">
         <h2> Faça login</h2>
-        <form action="" method="post" >
-            <label for="email">E-mail: </label>
-            <input type="text" name="email">
-            
-            <label for="password">Senha: </label>
-            <input type="password" name="password">
-            
-            <input type="submit">
-        </form>
+        <label for="email" class="text-effect">E-mail: </label>
+        <input type="email" name="email">
         
-    </div>
-    </div>
-
-</section>
+        <label for="password" class="text-effect">Senha: </label>
+        <input type="password" name="password">
+        
+        <input type="submit" class="click-effect">
+        <p>Ainda não tem uma conta? <span class="sign-text"><a href="/register/index">Cadastre-se</a></span></p>
+        <%- include('messages.ejs'); %>
+    </form>
+    
+    
+</div>
+    
