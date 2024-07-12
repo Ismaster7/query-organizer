@@ -1,7 +1,20 @@
 <%- include('includes/head.ejs') %>
 <%- include('includes/nav.ejs') %>
 <section class="main-tasks padding-20">
+    
     <%- include('includes/tasksBody.ejs') %>
+<section class="modal-tasks-increment">
+    <div class="form-div">
+        <form action="" method="post" name="tasks">
+            <h1>Descreva sua tarefa: </h1>
+            <label for="title">Título</label>
+            <input type="text" name="title" id="">
+            <input type="text" name="description" id="">
+            <input type="number" name="priority" id="" min="1" max="5">
+            <input type="date" name="date" id="">
+        </form>
+    </div>
+</section>
 </section>
 <%- include('includes/foooter.ejs') %>
 <%- include('includes/footer.ejs') %>

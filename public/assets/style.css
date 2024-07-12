@@ -434,6 +434,7 @@ background-size:cover;
     background-size:cover; 
     background-repeat: no-repeat;
     padding-top: 2rem;
+    position: relative;
 }
 
 .main-tasks section{
@@ -445,7 +446,7 @@ background-size:cover;
     height: 85vh;
     color: #FFFFFF;
     overflow-x:scroll;
-    padding: 1rem;
+    padding: 0 1rem 1rem 0;
 }
 
 .main-tasks section table{
@@ -466,6 +467,47 @@ background-size:cover;
 .tasks-table-head{
    /* display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr;*/
+}
+
+.button-menu{
+    width: 100%;
+}
+.button-menu h1{
+    display: inline-block;
+    margin: 0 2rem 2rem 0;
+    cursor: pointer;
+    border: 1px solid #aaa8a8;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+}
+
+.button-menu h1:hover{
+    transform: scale(1.05);
+    font-weight: 700;
+    border: none;
+    background-color: #050314;
+}
+
+.modal-tasks-increment{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    min-height: 90vh;
+    left: 0;
+    overflow: auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-div{
+    height: 600px;
+    width: 600px;
+    background-color: red;
 }
 
 @media screen and (max-width: 1200px){

@@ -1,11 +1,22 @@
 function main(){
     let acumulador = 0;
     const elemento = document.querySelector('.texto-interativo');
-    
+    const btnAddTask = document.querySelector('.tasks-add');
+    const taskIncrementScreen = document.querySelector('.modal-tasks-increment');
     function generalListener(){
         
        const dropdown = document.querySelector('.dropdown')
         const completeDropdown = document.querySelector('.complete-dropdown')
+        
+        if(btnAddTask)btnAddTask.addEventListener('click',()=>{
+            taskIncrementScreen.style.display = "flex";
+        })
+
+        window.addEventListener('click',(el)=>{
+            if(el.target === taskIncrementScreen){
+                taskIncrementScreen.style.display = "none";
+            }
+        })
         
         let valorNegativado = false;
        dropdown.addEventListener('click',()=>{
