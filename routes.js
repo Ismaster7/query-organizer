@@ -1,8 +1,10 @@
 const express = require('express');
 const route = express.Router();
-const tasksController = require('./src/controllers/tasksController')
-const homeController = require('./src/controllers/homeController')
-const loginController = require('./src/controllers/loginController')
+const tasksController = require('./src/controllers/tasksController');
+const homeController = require('./src/controllers/homeController');
+const loginController = require('./src/controllers/loginController');
+const {loginRequired} = require('./src/middleware/myMiddleware');
+
 // HOME 
 
 route.get('/',homeController.paginaInicial)
@@ -20,7 +22,7 @@ route.get('/login/logout', loginController.logout);
 // CONTACTS
 
 route.get('/tasks/index', tasksController.index)
-
+route.post('/tasks/register', loginRequired, tasksController.register)
 
 
 module.exports = route;

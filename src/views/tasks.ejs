@@ -1,20 +1,43 @@
 <%- include('includes/head.ejs') %>
 <%- include('includes/nav.ejs') %>
+<% if (user) { %>
 <section class="main-tasks padding-20">
     
     <%- include('includes/tasksBody.ejs') %>
-<section class="modal-tasks-increment">
+<section class="modal-tasks-increment ">
     <div class="form-div">
-        <form action="" method="post" name="tasks">
+        <form action="/tasks/register" method="post" name="tasks" >
             <h1>Descreva sua tarefa: </h1>
-            <label for="title">Título</label>
-            <input type="text" name="title" id="">
-            <input type="text" name="description" id="">
-            <input type="number" name="priority" id="" min="1" max="5">
+            <label for="title">Título:</label>
+            <input type="text" name="title" id="" placeholder="Ex: Compra de Materiais escolares">
+            <label for="description">Descrição da Tarefa:</label>
+            <textarea name="description" id="" placeholder="Preciso comprar lapís, borracha, apontador e um estojo novo"></textarea>
+            <label for="priority">Nível de Prioridade (escolha entre 1 e 5, sendo 1 o mais importante):</label>
+            <label for="priority" class="radio-label" style="color: #ff0000;" >1</label>
+            <input type="radio" name="priority" id="" value="1">
+            <label for="priority" class="radio-label" style="color: #DC0254">2</label>
+            <input type="radio" name="priority" id="" value="2">
+            <label for="priority" class="radio-label" style="color: #A94254">3</label>
+            <input type="radio" name="priority" id="" value="3">
+            <label for="priority" class="radio-label" style="color: #878854">4</label>
+            <input type="radio" name="priority" id="" value="4">
+            <label for="priority" class="radio-label" style="color: #428854">5</label>
+            <input type="radio" name="priority" id="" value="5">
+            <label for="date">Data de Entrega:</label>
             <input type="date" name="date" id="">
+            <label for="date">Iniciar alerta em quantos dias?:</label>
+            <input type="number" name="alert" id="" min="1" max="60">
+            <input type="submit" value="Cadastrar Tarefa">
         </form>
     </div>
 </section>
 </section>
+<% } else { %> 
+    <section class="main-login padding-20">
+
+        <h1 style="font-size: 5rem; color: red; background-color: rgba(0, 0, 0, .2); padding: 1rem;">Você Precisa efetuar login para isso !</h1>
+        <%- include('includes/messages.ejs') %>
+        </section>
+<% } %> 
 <%- include('includes/foooter.ejs') %>
 <%- include('includes/footer.ejs') %>

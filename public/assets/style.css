@@ -153,13 +153,18 @@ background-size:cover;
 .main-login .login-division-2 h2{
     margin-bottom: 0 !important;
 }
-.main-login .login-division-1 h2, .main-login .login-division-2 h2{
-    margin-bottom: 4rem;
+.main-login .login-division-1 h2, .main-login .login-division-2 h2, .form-div form h1{
+    margin-bottom: 3rem;
     font-size: 3rem;
     font-family: 'Fjalla One', sans-serif;
     letter-spacing: 2px;
     text-shadow: 1px 1px 2px #000000;
     color: #FFFFFF;
+}
+
+.form-div form [type="text"], .form-div form label{
+    display: block;
+    margin: 1rem 0;
 }
 
 
@@ -171,15 +176,14 @@ background-size:cover;
     font-size: 1.2rem;
 
 }
-.login-division-2 [type="email"], .login-division-2 [type="password"], .login-division-1 [type="email"], .login-division-1 [type="password"]{
+.login-division-2 [type="email"], .login-division-2 [type="password"], .login-division-1 [type="email"], .login-division-1 [type="password"], .form-div form [type="text"], .form-div form textarea, .form-div form [type="date"]{
     border-radius: 20px;
     padding: 1rem;
     font-size: 1rem;
     border: none;
     height: 3rem;
-
 }
-.login-division-2 [type="submit"], .login-division-1 [type="submit"]{
+.login-division-2 [type="submit"], .login-division-1 [type="submit"],.form-div form [type="submit"] {
     background-color: rgba(3, 32, 22, .9);
     text-shadow: 1px 1px 2px #000000;
     color: #FFFFFF;
@@ -191,6 +195,7 @@ background-size:cover;
     box-shadow: 1px 1px 2px black;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    display: block;
 }
 
 .click-effect:hover{
@@ -206,7 +211,7 @@ background-size:cover;
 .sign-text a, .login-text a{
     color: #FFFFFF;
 }
-.main-login .login-division-1 form label, .main-login .login-division-2 form label{
+.main-login .login-division-1 form label, .main-login .login-division-2 form label, .form-div form label{
     font-size: 1.2rem;
     font-weight: 900;
     letter-spacing: 2px;
@@ -392,6 +397,7 @@ background-size:cover;
     padding: 20px;
     border-radius: 10px;
     font-size: .9em;
+    display: inline-block;
 }
 
 .complete-dropdown a{
@@ -505,10 +511,32 @@ background-size:cover;
 }
 
 .form-div{
-    height: 600px;
     width: 600px;
-    background-color: red;
+   backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    overflow-y: auto;
 }
+
+.form-div form textarea{
+    min-height: 5.5rem;
+    width: 60%;
+    min-width: 3rem;
+}
+
+.form-div form [type="submit"]{
+    margin-top: 1rem;
+}
+
+.form-div form [type="radio"], .form-div form label.radio-label{
+    display: inline-block;
+}
+
+.radio-label + [type="radio"]{
+    margin-right: 1rem;
+    font-size: 3rem;
+}
+
 
 @media screen and (max-width: 1200px){
     
@@ -574,4 +602,5 @@ background-size:cover;
     .main-login .login-division-1{
         flex-wrap: wrap;
     }
+    
 }

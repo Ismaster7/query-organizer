@@ -40,6 +40,7 @@ class Login{
          this.user = await LoginModel.findOne({email: this.body.email})
         if(!this.user || !bcryptjs.compareSync(this.body.password, this.user.password)){
             this.user = null;
+            
             this.errors.push('E-mail ou senha incorretos!');
             
         }else{
