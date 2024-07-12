@@ -1,12 +1,12 @@
+
 exports.paginaInicial = (req, res, next)=>{
-    res.render('index',{batata: "Eu gosto de batata", arroz: "eu gosto de arroz"})
+    res.render('index.ejs')
     next()
    
 }
 
-exports.trataPost = (req,res)=>{
-    res.send(req.body)
-}
+
+
 
 
 const HomeModel = require('../models/HomeModel')

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose'); // Importe da biblioteca para usar o mongoDB
 const validator = require('validator'); //Imp orte biblioteca para validar formatos de email
 const bcryptjs = require('bcryptjs');  // Biblioteca para criptografar senhas
+
 const LoginSchema = new mongoose.Schema({
     email: {type: String, required: true},
     password: {type: String, required: true}

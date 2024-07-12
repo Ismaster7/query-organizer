@@ -4,7 +4,9 @@
 
             <li class="some"><a href="/">Home</a></li>
             <li class="aparece drop-tarefa"><a href="">Geral</a></li>
-            <li class="some"><a href=""></a>Gerenciar Tarefas</a></li>
+           <% if(user){ %>
+            <li class="some"><a href="/tasks/index">Gerenciar Tarefas</a></li>
+            <% } %>
         </ul>
         <div class="dropdown">
             ☰
@@ -17,12 +19,15 @@
             <li class="aparece drop-login"><a href="">Login</a></li>
             <li class="some"><a href="/register/index">Cadastrar</a></li>
             <% } else { %>
-            <li><%= user.email %></li>
+            <li><a href="#"><%= user.email %></a></li>
             
-            <li class="user-icon"></li>    
+            <li class="" >
+                <a href="/login/logout"> <div class="user-icon"></div></a>
+            </li>    
+            <li class="profile-user"></li>
             <% } %>
         </ul>
-        <div class="profile-user"></div>
+        
         
     </nav>
     <div class="dropdown-menu-login-tarefa padding-10">
@@ -38,8 +43,16 @@
         
     </div>
     <div class="complete-dropdown">
-        <a href="">Criar Tarefa</a>
-        <a href="">Consultar </a>
-        <a href="">Login</a>
+        <% if(!user) { %>
+        <a href="/login/index">Entrar</a>
+        <a href="/register/index">Cadastrar</a>
+        <% } else { %>
+        <a href="/tasks/index">Ger. Tarefas</a> 
+        <a href=""><%= user.email %></a> 
+        <a href="">Sair</a>  
+        <% } %>
     </div>
+    <ul class="user-icon-list ">
+        <li><a href="/login/logout">Sair</a></li>
+    </ul>
 </header>

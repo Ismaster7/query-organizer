@@ -3,8 +3,11 @@ const Login = require("../models/LoginModel");
 
 
 exports.loginInitialPage = (req, res, next, page) =>{
+    if(req.session.user){
+        return res.render('logado.ejs')
+    }
     console.log('salvo como: ' + page)
-    res.render('login.ejs',{screen: page})
+    return res.render('login.ejs',{screen: page})
 }
 
 
@@ -55,12 +58,17 @@ exports.login = async function (req, res){
          req.session.user = login.user;
          req.session.save(function(){
          console.log('salvou a sessão e agr vai voltar pro index')
-         return res.redirect('/login/index');
+         return res.redirect('/');
      })
     }catch(e){
      console.log(e)
      res.render('404.ejs')
     }
+ }
+
+ exports.logout = (req, res)=>{
+    req.session.destroy();
+    res.redirect('/');
  }
  
 
