@@ -6,12 +6,17 @@
     <%- include('includes/tasksBody.ejs') %>
 <section class="modal-tasks-increment ">
     <div class="form-div">
-        <form action="/tasks/register" method="post" name="tasks" >
+        <% if(task._id) { %>
+        <form action="/tasks/edit" method="post" name="tasks" >
             <h1>Descreva sua tarefa: </h1>
-            <label for="title">Título:</label>
-            <input type="text" name="title" id="" placeholder="Ex: Compra de Materiais escolares">
-            <label for="description">Descrição da Tarefa:</label>
-            <textarea name="description" id="" placeholder="Preciso comprar lapís, borracha, apontador e um estojo novo"></textarea>
+        <% } else { %> 
+        <form action="/tasks/register" method="post" name="tasks" >
+            <h1>Edite sua tarefa: </h1>  
+        <% } %> 
+            <label for="title">*Título:</label>
+            <input type="text" name="title" id="" required placeholder="Ex: Compra de Materiais escolares">
+            <label for="description">*Descrição da Tarefa:</label>
+            <textarea name="description" id="" required placeholder="Preciso comprar lapís, borracha, apontador e um estojo novo"></textarea>
             <label for="priority">Nível de Prioridade (escolha entre 1 e 5, sendo 1 o mais importante):</label>
             <label for="priority" class="radio-label" style="color: #ff0000;" >1</label>
             <input type="radio" name="priority" id="" value="1">
@@ -36,8 +41,7 @@
     <section class="main-login padding-20">
 
         <h1 style="font-size: 5rem; color: red; background-color: rgba(0, 0, 0, .2); padding: 1rem;">Você Precisa efetuar login para isso !</h1>
-        <%- include('includes/messages.ejs') %>
-        </section>
+       </section>
 <% } %> 
 <%- include('includes/foooter.ejs') %>
 <%- include('includes/footer.ejs') %>

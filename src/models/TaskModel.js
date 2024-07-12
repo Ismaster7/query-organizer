@@ -20,9 +20,11 @@ class Task{
 
    async register(){
         this.valid();
+        console.log('Consegui passar do valid. Agora será criada a task no BD')
         if(this.errors > 0)return;
         this.statusPriorityConfig();
         this.task = await TaskModel.create(this.body);
+        console.log('foi criada')
     }
 
     valid(){
