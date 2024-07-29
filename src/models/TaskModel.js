@@ -1,4 +1,5 @@
 const mongoose = require('mongoose'); // Importe da biblioteca para usar o mongoDB
+const { isEmpty } = require('validator');
 
 const TaskSchema = new mongoose.Schema({
     title: {type: String, required: true},
@@ -16,13 +17,14 @@ class Task{
         this.body = body;
         this.errors = [];
         this.task = null;
+
     }
 
    async register(){
         this.valid();
         console.log('Consegui passar do valid. Agora será criada a task no BD')
         if(this.errors > 0)return;
-        this.statusPriorityConfig();
+        this.statusConfig();
         this.task = await TaskModel.create(this.body);
         console.log('foi criada')
     }
@@ -56,8 +58,9 @@ class Task{
         
         };
 
-        statusPriorityConfig(){
+        statusConfig(){
             this.body.status = this.statusCase(this.body.date);
+            if(this.body.alert === "") this.body.alert === '1';
         }
 
         
@@ -66,8 +69,8 @@ class Task{
            const dateNow = new Date();
            const dateReq = new Date(date);
            const difDays = this.convertToDay(dateReq - dateNow);
-           if(difDays <= 3 + this.body.alert){
-                return 'Em dia';
+           if(difDays >= (3 + this.body.alert)){
+            return 'Em dia';
            }else if(difDays > 0){
             return 'Entrega Proxima';
            }else if(difDays === 0){
@@ -87,8 +90,25 @@ class Task{
             return date instanceof Date;
         }
 
+        //metodos estaticos
 
+        static async findById(id){
+            if(typeof id !== 'string') return;
+            const task = await TaskModel.findById(id);
+            return task;
+        }
+
+        static async findTask(){
+            const tasks = await TaskModel.find().sort({date: -1});
+            return tasks;
+        }
+
+        static updateStatus(alertDays, dueDate, priority){
+            console.log('chamou');
+            return '1';
+        }
     }
+
 
 
     module.exports = Task;

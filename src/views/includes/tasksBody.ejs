@@ -16,14 +16,27 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="tasks-table-head">
-            <td>item</td>
-            <td class="description-cell">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil tempore numquam velit dicta dolor vitae in nobis, accusamus ad eveniet rerum. Harum voluptate doloribus deleniti, deserunt commodi eius aliquam non.</td>
-            <td>item</td>
-            <td>item</td>
-            <td>item</td>
-        </tr>
-
+        
+        <% tasks.forEach(task =>{ %>
+            <tr>
+                <td><%= task.title %></td>
+                <td class="description-cell"><%= task.description %></td>
+                <td><%= task.priority %></td>
+                <td><%= dateFormat(task.date) %></td>
+                <% task.status = updateStatus(parseInt(task.alert), task.date, parseInt(task.priority)) %>
+                <% if(task.status === "Em dia") {%>
+                <td>
+                    <% }else if(task.status === "Entrega Proxima"){ %>
+                    <td class="near-due">
+                    <% }else if(task.status === "Atrasado"){ %>
+                        <td class="due">
+                    <% } %>
+                    <%= task.status %></td>
+                
+                
+                
+            </tr>
+        <% }); %>
         <tr>
             <td>item</td>
             <td class="description-cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos rerum fugit earum sapiente cumque dignissimos nesciunt doloremque tenetur voluptatem laudantium quas soluta ad delectus, molestias suscipit asperiores aut animi consequuntur!</td>

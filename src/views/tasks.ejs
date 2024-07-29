@@ -2,17 +2,13 @@
 <%- include('includes/nav.ejs') %>
 <% if (user) { %>
 <section class="main-tasks padding-20">
-    
     <%- include('includes/tasksBody.ejs') %>
 <section class="modal-tasks-increment ">
     <div class="form-div">
-        <% if(task._id) { %>
-        <form action="/tasks/edit" method="post" name="tasks" >
-            <h1>Descreva sua tarefa: </h1>
-        <% } else { %> 
+        
         <form action="/tasks/register" method="post" name="tasks" >
-            <h1>Edite sua tarefa: </h1>  
-        <% } %> 
+            <h1>Descreva sua Tarefa: </h1>  
+            
             <label for="title">*Título:</label>
             <input type="text" name="title" id="" required placeholder="Ex: Compra de Materiais escolares">
             <label for="description">*Descrição da Tarefa:</label>

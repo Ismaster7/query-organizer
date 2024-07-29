@@ -1,9 +1,11 @@
+const Contato = require('../models/TaskModel')
 
 exports.paginaInicial = (req, res, next)=>{
     res.render('index.ejs')
     next()
    
 }
+
 
 
 

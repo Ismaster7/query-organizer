@@ -494,6 +494,18 @@ background-size:cover;
     border: none;
     background-color: #050314;
 }
+.due, .near-due{
+    font-weight: 700;
+    text-shadow: 1px solid white;
+}
+
+.near-due{
+    color: rgb(235, 235, 182);
+}
+
+.due{
+    color: rgb(201, 120, 120);
+}
 
 .modal-tasks-increment{
     width: 100%;
