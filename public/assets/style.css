@@ -386,13 +386,14 @@ background-size:cover;
 .sucess{
     background-color: rgb(207, 235, 210);
     color: rgb(1, 31, 11);
+
 }
 .errors{
     background-color: rgb(201, 120, 120);
     color: rgb(71, 1, 1);
 }
 .errors, .sucess{
-    width: 80%;
+    width: 100%;
     margin-top: 2rem;
     padding: 20px;
     border-radius: 10px;
@@ -486,6 +487,7 @@ background-size:cover;
     padding: 1rem 2rem;
     border-radius: 5px;
     transition: all .2s ease-in-out;
+    color: #FFFFFF;
 }
 
 .button-menu h1:hover{

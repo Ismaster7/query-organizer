@@ -3,26 +3,39 @@ function main(){
     const elemento = document.querySelector('.texto-interativo');
     const btnAddTask = document.querySelector('.tasks-add');
     const taskIncrementScreen = document.querySelector('.modal-tasks-increment');
+
     function generalListener(){
         
        const dropdown = document.querySelector('.dropdown')
         const completeDropdown = document.querySelector('.complete-dropdown')
         
         if(btnAddTask)btnAddTask.addEventListener('click',()=>{
-            taskIncrementScreen.style.display = "flex";
+            modalScreenOn();
         })
 
         window.addEventListener('click',(el)=>{
             if(el.target === taskIncrementScreen){
-                taskIncrementScreen.style.display = "none";
+                modalScreenOff();
+            }
+            if(el.target.className == 'line-table'){
+                console.log('é uma linha de tabela')
             }
         })
+
+        
         
         let valorNegativado = false;
        dropdown.addEventListener('click',()=>{
             completeDropdown.style.display = negative('block');
             console.log('clique')
        })
+
+       function modalScreenOn(){
+        taskIncrementScreen.style.display = "flex";
+       }
+       function modalScreenOff(){
+        taskIncrementScreen.style.display = "none";
+       }
 
        function negative(blockOrFlex){
         valorNegativado = !valorNegativado;

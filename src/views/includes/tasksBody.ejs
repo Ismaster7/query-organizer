@@ -1,10 +1,11 @@
+<div class="button-menu">
+    <h1 class="tasks-add">Adicionar tarefa</h1>
+    <h1>Filtrar</h1>
+    
+</div>
+<%- include('messages.ejs') %>
 <section>
-    <div class="button-menu">
-        <h1 class="tasks-add">Adicionar tarefa</h1>
-        <h1>Filtrar</h1>
-        
-    </div>
-    <%- include('messages.ejs') %>
+    
     <table>
         <thead>
         <tr class="tasks-table-head">
@@ -18,7 +19,7 @@
     <tbody>
         
         <% tasks.forEach(task =>{ %>
-            <tr>
+                <tr class="line-table" data-item="<%= task._id %>">
                 <td><%= task.title %></td>
                 <td class="description-cell"><%= task.description %></td>
                 <td><%= task.priority %></td>
@@ -30,6 +31,8 @@
                     <td class="near-due">
                     <% }else if(task.status === "Atrasado"){ %>
                         <td class="due">
+                    <% }else{ %>
+                        <td> 
                     <% } %>
                     <%= task.status %></td>
                 
