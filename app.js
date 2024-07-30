@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.CONNECTIONSTRING)
  .then(()=>{
     app.emit('pronto');
-    console.log("Agora a conexão ocorreu");
+    
 })
 .catch(e=> console.log("Erro " + e));
 
@@ -55,3 +55,5 @@ app.on('pronto', ()=>{
         console.log('Servidor disponível em http://localhost:3000');
     })
 })
+
+

@@ -103,10 +103,7 @@ class Task{
             return tasks;
         }
 
-        static updateStatus(alertDays, dueDate, priority){
-            console.log('chamou');
-            return '1';
-        }
+        
     }
 
 

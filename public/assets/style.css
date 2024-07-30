@@ -372,6 +372,13 @@ background-size:cover;
 
 }
 
+.line-table{
+    transition: all 0.2s ease-in-out;
+}
+.line-table:hover{
+transform: scale(1.02);
+cursor: pointer;
+}
 .complete-dropdown{
     display: none;
     position: absolute; 
