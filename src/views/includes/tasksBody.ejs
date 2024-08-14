@@ -19,7 +19,7 @@
     <tbody>
         
         <% tasks.forEach(task =>{ %>
-                <tr class="line-table" data-item="<%= task._id %>">
+                <tr class="line-table" data-item="<%= task._id %>" alert-days="<%= task.alert %>">
                 <td><%= task.title %></td>
                 <td class="description-cell"><%= task.description %></td>
                 <td><%= task.priority %></td>

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+
 const flash = require('connect-flash')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
@@ -35,6 +36,7 @@ app.use(myMiddleware) //para utilizar middlewares. Necessario antes ter criado a
 app.use(express.urlencoded({extended: true})); // para poder utilizar os parametros de requisição, como req.body ou req.params
 app.use(routes);
 app.use(express.static(path.join(__dirname, "public"), { type: "text/css" }));
+app.use(express.static(path.join(__dirname, "public"), { type: "js" }));
 //app.use(express.static(path.resolve(__dirname, 'public')))
 app.set('views', path.resolve(__dirname,'src','views'))
 app.set('view engine', 'ejs');

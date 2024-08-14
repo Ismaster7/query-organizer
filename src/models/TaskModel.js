@@ -22,11 +22,18 @@ class Task{
 
    async register(){
         this.valid();
-        console.log('Consegui passar do valid. Agora será criada a task no BD')
         if(this.errors > 0)return;
         this.statusConfig();
         this.task = await TaskModel.create(this.body);
         console.log('foi criada')
+    }
+    
+    async edit(id){
+        this.valid();
+        if(this.errors > 0)return;
+        this.statusConfig();
+        this.task = await TaskModel.findByIdAndUpdate(id, this.body, {new: true});
+
     }
 
     valid(){
@@ -108,4 +115,5 @@ class Task{
 
 
 
-    module.exports = Task;
+  module.exports = Task; 
+  //  export default Task;

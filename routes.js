@@ -23,6 +23,7 @@ route.get('/login/logout', loginController.logout);
 
 route.get('/tasks/index', tasksController.index)
 route.post('/tasks/register', loginRequired, tasksController.register)
+route.post('/tasks/edit/:id',loginRequired, tasksController.edit);
 
 
 module.exports = route;

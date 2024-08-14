@@ -1,8 +1,8 @@
 
-import {Task} from '../src/models/TaskModel.js' 
 
-
+ 
 function main(){
+    
     let acumulador = 0;
     const elemento = document.querySelector('.texto-interativo');
     const btnAddTask = document.querySelector('.tasks-add');
@@ -22,7 +22,7 @@ function main(){
                 modalScreenOff();
             }
             if(el.target.parentElement.className === 'line-table'){
-                modalEdition(el.target.parentElement.getAttribute('data-item'))
+                modalScreenOn(el.target.parentElement.getAttribute('data-item'))
             }
         })
 
@@ -34,31 +34,63 @@ function main(){
             console.log('clique')
        })
 
-       async function modalScreenOn(id){
-        document.querySelector('.modal-task').setAttribute('action', '/tasks/register');
+      function modalScreenOn(id){
+        const campoData = document.querySelector('.modal-task input[type="date"]');
+    const dataAtual = new Date().toISOString().slice(0, 10);
+    campoData.min = dataAtual;
+        document.querySelector('.modal-task').setAttribute('action', `/tasks/register`);
+        document.querySelector('.modal-task input[type="submit"]').setAttribute('value','Cadastrar Tarefa')
+        document.querySelector('.modal-task h1').innerHTML = 'Descreva sua Tarefa'
+        
         if(!id){
             taskIncrementScreen.style.display = "flex";
             return
         }
-        try{
-            const task = await Task.findById(id);
-        }catch(e){
-            alert('Erro ao buscar essa tarefa')
-            return
-        }
-        document.querySelector('.modal-task').setAttribute('action', '/tasks/edit');
+        
+        document.querySelector('.modal-task').setAttribute('action', `/tasks/edit/${id}`);
+        document.querySelector('.modal-task input[type="submit"]').setAttribute('value','Atualizar Tarefa')
+        document.querySelector('.modal-task h1').innerHTML = 'Atualize sua Tarefa'
+        fillFields(id);
+        taskIncrementScreen.style.display = "flex";
 
-        taskIncrementScreen.style.display = "flex"
-        fillFields()
-        document.querySelector('.modal-task').setAttribute('action', '/tasks/register');
        }
-       function fillFields(){
-        document.querySelector('.modal-task').children.forEach(element => {
-            if(element.getAttribute('name') === 'title'){
-                element = 'julio';
-            }
-        });
+
+
+       function fillFields(id){
+
+        const tableDad = document.querySelector(`tr[data-item="${id}"]`);
+        const tableSon = tableDad.querySelectorAll(':scope > *');
+        const filhoPrioridade = document.querySelector('.modal-tasks-increment div form');
+        console.log(tableSon)
+            document.querySelector(".modal-tasks-increment div form input[name='title']").value = tableSon[0].innerHTML;
+            document.querySelector(".modal-tasks-increment div form textarea[name='description']").value = tableSon[1].innerHTML;
+        for(let i = 6; i< 11; i++){
+            filhoPrioridade.children[i].checked = false;
+        }
+        const priority = parseInt(tableSon[2].innerHTML);
+        if( priority === 1){
+            filhoPrioridade.children[7].checked = true;
+        }else if(priority === 2){
+            filhoPrioridade.children[7 + priority].checked = true;
+        }else{
+            filhoPrioridade.children[7 + Math.floor(priority*1.6)].checked = true;
+        }
+       // const dataFormatada = new Date(tableSon[3].innerHTML);
+       const dataFormatada = dateFormat(tableSon[3].innerHTML); 
+       document.querySelector(".modal-tasks-increment div form input[name='date']").value = dataFormatada;
+       document.querySelector(".modal-tasks-increment div form input[name='alert']").value = tableDad.getAttribute('alert-days');
+        
        }
+       function dateFormat(date){
+        if(!date)return '';
+        let day = date.slice(0, 2);
+        let month = date.slice(3, 5);
+        let year = date.slice(6, 10);
+        
+    
+           return `${year}-${month}-${day}`
+        }
+       
 
 
        function modalScreenOff(){
@@ -79,7 +111,7 @@ function main(){
     function digitacao(texto, tempo){
         setTimeout(()=>{
             elemento.innerHTML = "";
-        for(i=0; i < texto.length; i++){
+        for(let i=0; i < texto.length; i++){
             acumulador = 75*i;
             setTimeout(write, acumulador, texto[i])
         }
