@@ -25,7 +25,7 @@ class Task{
         if(this.errors > 0)return;
         this.statusConfig();
         this.task = await TaskModel.create(this.body);
-        console.log('foi criada')
+        
     }
     
     async edit(id){
@@ -34,6 +34,10 @@ class Task{
         this.statusConfig();
         this.task = await TaskModel.findByIdAndUpdate(id, this.body, {new: true});
 
+    }
+
+    async delete(){
+        this.task = await TaskModel.deleteMany(req.body.itemIds);
     }
 
     valid(){

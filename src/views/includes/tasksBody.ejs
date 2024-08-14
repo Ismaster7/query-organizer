@@ -1,52 +1,65 @@
 <div class="button-menu">
     <h1 class="tasks-add">Adicionar tarefa</h1>
     <h1>Filtrar</h1>
-    
+    <h1 class="trash"> 🗑 </h1>
 </div>
 <%- include('messages.ejs') %>
-<section>
-    
-    <table>
-        <thead>
-        <tr class="tasks-table-head">
-            <th>Título</th>
-            <th>Descrição</th>
-            <th>Prioridade</th>
-            <th>Data de Entrega</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-        <% tasks.forEach(task =>{ %>
-                <tr class="line-table" data-item="<%= task._id %>" alert-days="<%= task.alert %>">
-                <td><%= task.title %></td>
-                <td class="description-cell"><%= task.description %></td>
-                <td><%= task.priority %></td>
-                <td><%= dateFormat(task.date) %></td>
-                <% task.status = updateStatus(parseInt(task.alert), task.date, parseInt(task.priority)) %>
-                <% if(task.status === "Em dia") {%>
-                <td>
-                    <% }else if(task.status === "Entrega Proxima"){ %>
-                    <td class="near-due">
-                    <% }else if(task.status === "Atrasado"){ %>
-                        <td class="due">
-                    <% }else{ %>
-                        <td> 
-                    <% } %>
-                    <%= task.status %></td>
-                
-                
-                
-            </tr>
-        <% }); %>
-        <tr>
-            <td>item</td>
-            <td class="description-cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos rerum fugit earum sapiente cumque dignissimos nesciunt doloremque tenetur voluptatem laudantium quas soluta ad delectus, molestias suscipit asperiores aut animi consequuntur!</td>
-            <td>item</td>
-            <td>item</td>
-            <td>item</td>
-        </tr>
-    </tbody>
-    </table>
-</section>
+    <section>
+
+        <table>
+            <thead>
+                <tr class="tasks-table-head">
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Prioridade</th>
+                    <th>Data de Entrega</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% tasks.forEach(task=>{ %>
+                    <tr class="line-table" data-item="<%= task._id %>" alert-days="<%= task.alert %>">
+                        <td>
+                            <%= task.title %>
+                        </td>
+                        <td class="description-cell">
+                            <%= task.description %>
+                        </td>
+                        <td>
+                            <%= task.priority %>
+                        </td>
+                        <td>
+                            <%= dateFormat(task.date) %>
+                        </td>
+                        <% task.status=updateStatus(parseInt(task.alert), task.date, parseInt(task.priority)) %>
+                            <% if(task.status==="Em dia" ) {%>
+                                <td>
+                                    <% }else if(task.status==="Entrega Proxima" ){ %>
+                                <td class="near-due">
+                                    <% }else if(task.status==="Atrasado" ){ %>
+                                <td class="due">
+                                    <% }else{ %>
+                                <td>
+                                    <% } %>
+                                        <%= task.status %>
+                                </td>
+                         <td class=""> <input type="checkbox" name="  " id="" class="exclude"></td>
+
+
+                    </tr>
+                    <% }); %>
+                        <tr>
+                            <td>item</td>
+                            <td class="description-cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
+                                rerum fugit earum sapiente cumque dignissimos nesciunt doloremque tenetur voluptatem
+                                laudantium quas soluta ad delectus, molestias suscipit asperiores aut animi
+                                consequuntur!</td>
+                            <td>item</td>
+                            <td>item</td>
+                            <td>item</td>
+                        </tr>
+            </tbody>
+        </table>
+    </section>

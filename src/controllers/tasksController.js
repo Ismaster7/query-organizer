@@ -42,3 +42,14 @@ exports.register = async (req, res)=>{
     
 
 }
+
+exports.delete = async (req,res)=>{
+    try{
+        const task = new Task(req.body);
+        await task.delete()
+        req.flash('sucess', 'Tarefa Excluída com Sucesso!');
+        req.session.save(()=> res.redirect('/tasks/index'));
+    }catch(e){
+        return res.render('404.ejs')
+    }
+}

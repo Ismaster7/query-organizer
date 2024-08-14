@@ -579,6 +579,15 @@ cursor: pointer;
         display: block;
     }
 }
+.exclude{
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.button-menu h1.trash{
+    display: none;
+    
+}
 
 @media screen and (max-width: 900px){
     .header-style nav ul li{

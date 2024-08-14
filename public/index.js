@@ -1,5 +1,5 @@
 
-
+import {selectedTasks, excludeAll}  from './tasks.js'
  
 function main(){
     
@@ -21,11 +21,19 @@ function main(){
             if(el.target === taskIncrementScreen){
                 modalScreenOff();
             }
-            if(el.target.parentElement.className === 'line-table'){
+            if(el.target.parentElement.className === 'line-table' && !(el.target.className === 'exclude')){
                 modalScreenOn(el.target.parentElement.getAttribute('data-item'))
             }
-        })
+            if(el.target.className === 'exclude'){
+                
+               selectedTasks(el.target.closest('.line-table').getAttribute('data-item'))
 
+            }
+            if(el.target.className === 'trash'){
+                excludeAll();
+            }
+        })
+        
         
         
         let valorNegativado = false;
