@@ -39,7 +39,6 @@ function main(){
         let valorNegativado = false;
        dropdown.addEventListener('click',()=>{
             completeDropdown.style.display = negative('block');
-            console.log('clique')
        })
 
       function modalScreenOn(id){
@@ -49,7 +48,7 @@ function main(){
         document.querySelector('.modal-task').setAttribute('action', `/tasks/register`);
         document.querySelector('.modal-task input[type="submit"]').setAttribute('value','Cadastrar Tarefa')
         document.querySelector('.modal-task h1').innerHTML = 'Descreva sua Tarefa'
-        
+        document.querySelector('.inside-exclude').style.display = 'none';
         if(!id){
             taskIncrementScreen.style.display = "flex";
             return
@@ -58,6 +57,9 @@ function main(){
         document.querySelector('.modal-task').setAttribute('action', `/tasks/edit/${id}`);
         document.querySelector('.modal-task input[type="submit"]').setAttribute('value','Atualizar Tarefa')
         document.querySelector('.modal-task h1').innerHTML = 'Atualize sua Tarefa'
+        document.querySelector('.inside-exclude').style.display = 'inline-block';
+        document.querySelector('.inside-exclude').setAttribute('href', `/tasks/delete/${id}`)
+        
         fillFields(id);
         taskIncrementScreen.style.display = "flex";
 
@@ -69,7 +71,6 @@ function main(){
         const tableDad = document.querySelector(`tr[data-item="${id}"]`);
         const tableSon = tableDad.querySelectorAll(':scope > *');
         const filhoPrioridade = document.querySelector('.modal-tasks-increment div form');
-        console.log(tableSon)
             document.querySelector(".modal-tasks-increment div form input[name='title']").value = tableSon[0].innerHTML;
             document.querySelector(".modal-tasks-increment div form textarea[name='description']").value = tableSon[1].innerHTML;
         for(let i = 6; i< 11; i++){

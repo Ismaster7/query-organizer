@@ -24,6 +24,6 @@ route.get('/login/logout', loginController.logout);
 route.get('/tasks/index', tasksController.index)
 route.post('/tasks/register', loginRequired, tasksController.register)
 route.post('/tasks/edit/:id',loginRequired, tasksController.edit);
-route.post('/tasks/delete', tasksController.delete);
+route.get('/tasks/delete/:id', tasksController.delete);
 
 module.exports = route;

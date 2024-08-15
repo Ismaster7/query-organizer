@@ -14,16 +14,16 @@ if(selectedItens.length > 0){
 }
 
 function excludeAll(){
-    fetch('/tasks/delete', {
-        method: 'POST',
+    fetch(`/tasks/delete/:${selectedItens[0]}`, {
+        method: 'GET',
         headers: {
             'Content-Type' : 'application/json',
             }, 
-        body: JSON.stringify({itemIds: selectedItens}),
+        body: JSON.stringify({id: selectedItens}),
 
     }).then((response) =>response.json()).then((data)=>{
         console.log('Itens excluidos: ', data.deletedItens)
-    }).catch((error)=>{console.error('Erro ao excluir os itens')})
+    }).catch((error)=>{console.log('Erro ao excluir os itens')})
 }
 
     export {selectedTasks, excludeAll}

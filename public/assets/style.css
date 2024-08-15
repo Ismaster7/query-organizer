@@ -183,7 +183,15 @@ background-size:cover;
     border: none;
     height: 3rem;
 }
-.login-division-2 [type="submit"], .login-division-1 [type="submit"],.form-div form [type="submit"] {
+#botao-acao, .inside-exclude{
+display: inline-block;
+}
+a.inside-exclude{
+display: none;
+background-color: rgb(209, 152, 152);
+color: #050314;
+}
+.login-division-2 [type="submit"], .login-division-1 [type="submit"],.form-div form [type="submit"], .inside-exclude {
     background-color: rgba(3, 32, 22, .9);
     text-shadow: 1px 1px 2px #000000;
     color: #FFFFFF;
@@ -197,7 +205,9 @@ background-size:cover;
     transition: all 0.2s ease-in-out;
     display: block;
 }
-
+input[name="alert"]{
+    display: block;
+}
 .click-effect:hover{
     transform: scale(1.08);
     box-shadow: 0 0  3px 5px rgba(3, 32, 22, .9);
@@ -558,6 +568,8 @@ cursor: pointer;
     margin-right: 1rem;
     font-size: 3rem;
 }
+
+
 
 
 @media screen and (max-width: 1200px){

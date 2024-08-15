@@ -36,15 +36,13 @@ class Task{
 
     }
 
-    async delete(){
-        this.task = await TaskModel.deleteMany(req.body.itemIds);
-    }
+    
 
     valid(){
         this.cleanUp()
         if(!this.body.date && this.body.alert)this.errors.push(`Necessário informar uma data para criar um alerta!`);
         if(this.body.date && !this.body.alert)this.body.alert = '1';
-        console.log('valor configurado no alert: ', this.body.alert);
+
         if(Number.isNaN(parseInt(this.body.alert)))this.errors.push('Caracteres inválidos no campo de Alerta');
         if(parseInt(this.body.alert) <= 0 || parseInt(this.body.alert) > 60)this.errors.push('Insira um número entre 1 e 60 dias no campo de Alerta');
         
@@ -113,7 +111,11 @@ class Task{
             const tasks = await TaskModel.find().sort({date: -1});
             return tasks;
         }
-
+        static async delete(id){
+            if(typeof id !== 'string')return;
+            const tasks = await TaskModel.deleteMany({ _id: { $in: id } });
+            return tasks
+        }
         
     }
 
