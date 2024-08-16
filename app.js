@@ -30,13 +30,14 @@ const helmet = require('helmet')
 
 app.use(sessionOptions);
 app.use(flash())
-app.use(helmet())
+app.use(helmet({
+    contentSecurityPolicy: false
+}))
 const {myMiddleware} = require('./src/middleware/myMiddleware')
 app.use(myMiddleware) //para utilizar middlewares. Necessario antes ter criado a variavel que apnto para o middleware especifico
 app.use(express.urlencoded({extended: true})); // para poder utilizar os parametros de requisição, como req.body ou req.params
 app.use(routes);
-app.use(express.static(path.join(__dirname, "public"), { type: "text/css" }));
-app.use(express.static(path.join(__dirname, "public"), { type: "js" }));
+app.use(express.static(path.join(__dirname, "public")));
 //app.use(express.static(path.resolve(__dirname, 'public')))
 app.set('views', path.resolve(__dirname,'src','views'))
 app.set('view engine', 'ejs');
